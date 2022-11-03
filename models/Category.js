@@ -13,16 +13,9 @@ Category.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    card_number: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes,
-    },
-    reader_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'category',
-        key: 'id',
-      },
+    category_number: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
   },
   {
