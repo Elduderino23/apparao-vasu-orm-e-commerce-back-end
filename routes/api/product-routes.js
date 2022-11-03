@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
   try {
     const productData = await Product.findAll({
       // Add Product as a second model to JOIN with
-      include: [{ model: Category }, { model: Product }],
+      include: [{ model: Category }],
     });
     res.status(200).json(productData);
   } catch (err) {
@@ -24,7 +24,7 @@ router.get('/:id', async (req, res) => {
   try {
     const productData = await Product.findByPk(req.params.id, {
       // Add Product as a second model to JOIN with
-      include: [{ model: Category }, { model: Product }],
+      include: [{ model: Tag }],
     });
 
     if (!productData) {
@@ -39,8 +39,7 @@ router.get('/:id', async (req, res) => {
   // be sure to include its associated Category and Tag data
 });
 
-// create new product
-router.post('/', async (req, res) => {
+router.post('/', (req, res) => {
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -72,7 +71,7 @@ router.post('/', async (req, res) => {
 });
 
 // update product
-router.put('/:id', async (req, res) => {
+router.put('/:id', (req, res) => {
   // update product data
   Product.update(req.body, {
     where: {
@@ -116,7 +115,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
   try {
-    const productData = await Category.destroy({
+    const productData = await Product.destroy({
       where: {
         id: req.params.id,
       },
