@@ -3,8 +3,17 @@ const { Tag, Product, ProductTag } = require('../../models');
 
 // The `/api/tags` endpoint
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   // find all tags
+  try {
+    const tagData = await Tag.findAll({
+      // Add Product as a second model to JOIN with
+      include: [{ model: Tag }, { model: Product }],
+    });
+    res.status(200).json(categoryData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
   // be sure to include its associated Product data
 });
 
