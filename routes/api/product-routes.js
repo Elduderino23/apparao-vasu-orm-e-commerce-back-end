@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
   try {
     const productData = await Product.findAll({
       // Add Product as a second model to JOIN with
-      include: [{ model: Category }],
+      include: [{ model: Tag }],
     });
     res.status(200).json(productData);
   } catch (err) {

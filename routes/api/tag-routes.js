@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
   try {
     const tagData = await Tag.findAll({
       // Add Product as a second model to JOIN with
-      include: [{model: ProductTag }],
+      include: [{model: Product }],
     });
     res.status(200).json(tagData);
   } catch (err) {
@@ -22,7 +22,7 @@ router.get('/:id', async (req, res) => {
   try {
     const tagData = await Tag.findByPk(req.params.id, {
       // Add Book as a second model to JOIN with
-      include: [{ model: ProductTag }],
+      include: [{ model: Product }],
     });
 
     if (!tagData) {
@@ -41,8 +41,8 @@ router.post('/', async (req, res) => {
   // create a new tag
   try {
     const tagData = await Tag.findByPk(req.params.id, {
-      // Add Book as a second model to JOIN with
-      include: [{ model: ProductTag }],
+      // Add B as a second model to JOIN with
+      include: [{ model: Product }],
     });
 
     if (!tagData) {
@@ -59,15 +59,16 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
   // update a tag's name by its `id` value
   try {
-    const tagData = await Tag.findByPk(req.params.id, {
-      // Add Book as a second model to JOIN with
-      include: [{ model: ProductTag }],
-    });
-
-    if (!tagData) {
-      res.status(404).json({ message: 'No tag found with that id!' });
-      return;
+    const tagData = await Tag.update(
+      {
+      tag_name: req.body.tag_name
+    },
+    {
+      where: {
+        id: req.params.id,
+      },
     }
+    )
 
     res.status(200).json(tagData);
   } catch (err) {
