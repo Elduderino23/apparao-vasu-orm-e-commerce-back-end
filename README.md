@@ -1,4 +1,62 @@
-# 13 Object-Relational Mapping (ORM): E-Commerce Back End
+# ORM E-Commerce Back End
+
+## Deployable Video Link
+https://watch.screencastify.com/v/S0y0GoFteuOoIWHPw2GS
+
+## Goal
+The task was to make 
+
+## Technology Use
+  - Javascript
+  - JQuery
+  - Node.js
+  - Inquirer
+  - Mysql2
+  - Console.table
+  - MySQL
+  - VS Code
+  - Git Bash 
+  - GitHub
+
+## Execution
+The first part of making the sql employee tracker was to make a setup schema.sql, seeds.sql, index.js and gitignore files. After downloading the right versions of inquirer, Mysql2, Console.table, the tricky part was to make functions that would work with MySQL in order to generate the tables and information necessary to show in the command line. First thing to do when given a task of creating information from schema and seeds sql files into MySQL as seen below.
+
+schema.sql code:
+```SQL
+
+```
+
+
+After inputting the following sql files into the MySQL system, the next step was to put functions and prompts into 
+```Javascript
+
+```
+The second part of tackling the :
+```Javascript
+
+```
+After formatting the questions like the ones above, a switch case was made in order for the user to switch between questions in the command line. It is best represented with the code below:
+
+```Javascript
+
+```
+After making the 
+
+```Javascript
+
+
+ ```
+The last  That code is show below:
+ ```Javascript
+
+```
+## Result
+
+The following website demonstrates what the final product looks like:
+
+
+
+<!-- # 13 Object-Relational Mapping (ORM): E-Commerce Back End
 
 ## Your Task
 
@@ -257,4 +315,4 @@ You are required to submit BOTH of the following for review:
 * The URL of the GitHub repository. Give the repository a unique name and include a readme describing the project.
 
 ---
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved. -->
